@@ -22,8 +22,10 @@ body{
 }
 
 .sidebar-icon{
-    width: 40px;
-    height: 40px;
+    font-size: 36px;
+    min-width: 36px;
+    height: 36px;
+    color: #d87093;
 }
 
 .sidebar-title{
@@ -52,12 +54,27 @@ body{
 .sidebar-menu a{
     text-decoration: none;
     color: inherit;
+    width: 100%;
 }
 
 .sidebar-menu li a{
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.sidebar-menu li a:hover{
+    background-color: #d87093;
+    color: #fff;
+}
+
+.sidebar-menu li a ion-icon{
+    padding: 4px;
+    border-radius: 4px;
 }
 
 .sidebar-menu li{
@@ -75,11 +92,6 @@ body{
     color: #d87093;
 }
 
-.menu-icon{
-    width: 24px;
-    height: 24px;
-}
-
 .search-bar{
     width: calc(100% - 250px);
     height: 60px;
@@ -89,6 +101,7 @@ body{
     position: fixed;
     top: 0;
     left: 291px;
+    padding: 0 20px;
     background: #fff;
     border-bottom: 1px solid #ddd;
     z-index: 900;
@@ -100,9 +113,18 @@ body{
     max-width: 550px;
 }
 
+.search-icon{
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 20px;
+    opacity: 0.7;
+}
+
 .search-wrapper input{
     width: 100%;
-    padding: 10px 18px 10px 45px;
+    padding: 12px 18px 12px 45px;
     font-size: 16px;
     background: #f2f2f2;
     border: none;
@@ -111,50 +133,136 @@ body{
     font-family: 'Georgia', serif;
 }
 
-.search-icon{
-    position: absolute;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-    width: 18px;
-    height: 18px;
-    opacity: 0.7;
-}
-
 .top-buttons{
-    position: absolute;
-    right: 80px;
-    top: 50%;
+    position: fixed;
+    right: 20px;
+    top: 31px;
     transform: translateY(-50%);
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
+    z-index: 1000;
 }
 
-.notification-button img{
-    width: 26px;
-    height: 26px;
+.top-buttons ion-icon{
+    font-size: 28px;
     cursor: pointer;
-    opacity: 0.9;
-    transition: 0.2s;
+    color: #555;
 }
 
-.notification-button img:hover{
-    opacity: 1;
+.notif-list{
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    width: 200px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+    z-index: 1001;
 }
 
-.profile-button img{
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
+.notif-list.show{
+    display: block;
+}
+
+.notif-list ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.notif-list ul li{
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.notif-list ul li:hover{
+    background: #f2f2f2;
+}
+
+.container{
+    padding-top: 120px;
+    margin-left: 270px;
+    position: relative;
+}
+
+.recommended{
+    position: fixed;
+    bottom: 20px;
+    left: 310px;
+    width: calc(100% - 310px - 20px);
+    background: #f7f5f5;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15;
+}
+
+.recommended h2{
+    font-size: 18px;
+    margin: 0 0 15px 10px;
+    text-align: left;
+}
+
+.book-list{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.book{
+    cursor: pointer;
+    transition: transform 0.2s;
+    text-align: center;
+}
+
+.book img{
+    width: 120px;
+    height: 200px;
     object-fit: cover;
-    image-rendering: auto;
-    filter: none;
-    cursor: pointer;
-    opacity: 0.95;
-    transition: 0.2s;
+    border-radius: 10px;
 }
 
-.profile-button img:hover{
-    opacity: 1;
+.book:hover{
+    transform: scale(1.05);
+}
+
+.book p{
+    margin-top: 8px;
+    font-weight: bold;
+}
+
+.book-details{
+    position: fixed;
+    top: 60px;
+    right: -405px;
+    width: 270px;
+    height: calc(100vh - 100px);
+    background: #ffe6f2;
+    padding: 20px;
+    border-left: 3px solid #d87093;
+    transition: right 0.3s ease;
+    overflow-y: auto;
+    z-index: 1001;
+}
+
+.book-details.show{
+    right: 0;
+}
+
+.book-cover{
+    width: 180px;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
