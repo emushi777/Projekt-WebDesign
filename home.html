@@ -10,7 +10,7 @@
 
     <div class="sidebar">
         <div class="sidebar-header">
-            <img src="logo.png" class="sidebar-icon" alt="logo">
+            <ion-icon name="library-outline" class="sidebar-icon"></ion-icon>
             <span class="sidebar-title">
             <span class="pink">Moonlight</span><span class="black">Pages</span>
             </span>
@@ -18,43 +18,78 @@
 
         <ul class="sidebar-menu">
             <li>
-                <a href="home.html"><img src="home.png" class="menu-icon" alt="">
+                <a href="home.html">
+                    <ion-icon name="home-outline"></ion-icon>
                 Home
                 </a>
             </li>
-            <li>
-                <img src="browse.png" class="menu-icon" alt="">
+            <li><a href="browse.html">
+                <ion-icon name="book-outline"></ion-icon>
                 Browse Books
+                </a>
             </li>
             <li>
-                <img src="heart.png" class="menu-icon" alt="">
+                <a href="favorites.html">
+                <ion-icon name="heart-outline"></ion-icon>
                 Favorites
+                </a>
             </li>
             <li>
-                <img src="account.png" class="menu-icon" alt="">
+                <a href="account">
+                <ion-icon name="person-outline"></ion-icon>
                 My account
+                </a>
             </li>
         </ul>
     </div>
 
     <div class="search-bar">
         <div class="search-wrapper">
-            <img src="search.png" class="search-icon" alt="">
+            <ion-icon name="search-outline" class="search-icon"></ion-icon>
             <input type="text" placeholder="Search your favorite books">
         </div>
         
         <div class="top-buttons">
-            <div class="notification-button">
-                <img src="notifications.png" alt="notifications">
+            <div class="notification-button" id="notif-btn">
+                <ion-icon name="notifications-outline"></ion-icon>
+                <div class="notif-list" id="notif-list">
+                    <ul>
+                        <li>New book released!</li>
+                        <li>Discount on bestseller.</li>
+                        <li>Buy your favorite books now!</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="profile-button">
                 <a href="login.html">
-                    <img src="profile.png" alt="profile">
+                    <ion-icon name="person-circle-outline"></ion-icon>
                 </a>
             </div>
         </div>
     </div>
+
+    <div class="container">
+        <div class="recommended">
+            <h2>Recommended</h2>
+        <div class="book-list" id="book-list"></div>
+        </div>
+
+        <div class="book-details" id="book-details">
+            <h2 id="book-title">Select a book</h2>
+            <img id="book-cover" class="book-cover" src="" >
+            <p><strong>Author:</strong> <span id="book-author"></span></p>
+            <p><strong>Genre:</strong> <span id="book-genre"></span></p>
+            <p><strong>Pages:</strong> <span id="book-pages"></span></p>
+            <p><strong>Rating:</strong> <span id="book-rating"></span></p>
+            <p id="book-desc"></p>
+        </div>
+    </div>
+
+    <script src="home.js"></script>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 </body>
 </html>
