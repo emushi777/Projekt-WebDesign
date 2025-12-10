@@ -3,134 +3,60 @@ body{
     font-family: 'Georgia', serif;
 }
 
-.sidebar{
-    width: 250px;
-    height: 100vh;
+.topnav{
+    width: 100%;
+    height: 70px;
     background: #fff;
-    border-right: 1px solid #ddd;
-    padding: 20px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    box-sizing: border-box;
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 900;
 }
 
-.sidebar-header{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 30px;
-}
-
-.sidebar-icon{
+.logo-btn{
     font-size: 36px;
     min-width: 36px;
     height: 36px;
     color: #d87093;
 }
 
-.sidebar-title{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.sidebar-title .pink{
+.logo-text .pink{
     color: #d87093;
     font-weight: bold;
     font-size: 22px;
 }
 
-.sidebar-title .black{
+.logo-text .black{
     color: #000;
     font-size: 22px;
 }
 
-.sidebar-menu{
+.nav-categories {
     list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar-menu a{
-    text-decoration: none;
-    color: inherit;
-    width: 100%;
-}
-
-.sidebar-menu li a{
     display: flex;
     align-items: center;
-    gap: 12px;
-    font-size: 18px;
-    padding: 8px;
-    border-radius: 4px;
-    transition: background 0.3s;
-}
-
-.sidebar-menu li a:hover{
-    background-color: #d87093;
-    color: #fff;
-}
-
-.sidebar-menu li a ion-icon{
-    padding: 4px;
-    border-radius: 4px;
-}
-
-.sidebar-menu li{
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 5px;
-    cursor: pointer;
-    color: #000;
-    font-weight: normal;
-    border-bottom: 1px solid #f2f2f2;
-}
-
-.sidebar-menu li:hover{
-    color: #d87093;
-}
-
-.search-bar{
-    width: calc(100% - 250px);
-    height: 60px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 291px;
-    padding: 0 20px;
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-    z-index: 900;
-}
-
-.search-wrapper{
-    position: relative;
-    width: 60%;
-    max-width: 550px;
-}
-
-.search-icon{
+    gap: 30px;
+    margin: 0 auto;       
     position: absolute;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-    font-size: 20px;
-    opacity: 0.7;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-.search-wrapper input{
-    width: 100%;
-    padding: 12px 18px 12px 45px;
-    font-size: 16px;
-    background: #f2f2f2;
-    border: none;
-    border-radius: 30px;
-    outline: none;
-    font-family: 'Georgia', serif;
+
+.nav-categories li a{
+    text-decoration: none;
+    color: #222;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.nav-categories li a:hover{
+    color: #d87093;
 }
 
 .top-buttons{
@@ -159,7 +85,7 @@ body{
     background: #fff;
     border: 1px solid #ddd;
     border-radius: 6px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 1001;
 }
 
@@ -193,10 +119,10 @@ body{
 .recommended{
     position: fixed;
     bottom: 20px;
-    left: 310px;
-    width: calc(100% - 310px - 20px);
-    background: #f7f5f5;
-    border: 2px solid #ddd;
+    left: 40px;
+    width: calc(100% - 40px - 40px);
+    background: #f5f7ef;
+    border: 2px solid #e5e5e5;
     border-radius: 12px;
     padding: 20px;
     box-sizing: border-box;
@@ -265,4 +191,119 @@ body{
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 20px;
+}
+
+.reading-challenge-box {
+    margin-left: 40px; 
+    margin-top: -35px;
+    width: calc(100% - 40px - 40px);
+    height: 250px;
+    background: #f5f7ef;
+    border: 2px solid #e5e5e5;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    box-sizing: border-box;
+}
+
+.reading-challenge-box h2 {
+    margin: 0 0 10px;
+    font-size: 22px;
+    color: #1a1a1a;
+}
+
+.reading-challenge-box img{
+    width: 230px;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.challenge-btn {
+    background-color: #d87093; 
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.challenge-btn:hover {
+    transform: scale(1.05);
+}
+
+/* NEW TOP NAV */
+.topnav{
+    width: 100%;
+    height: 70px;
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 900;
+}
+
+/* Logo button */
+.logo-btn{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.logo-text .pink{
+    color: #d87093;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.logo-text .black{
+    color: #000;
+    font-size: 22px;
+}
+
+/* Center the nav categories horizontally in the topnav */
+.nav-categories {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0 auto;       /* center horizontally */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.nav-categories li a{
+    text-decoration: none;
+    color: #222;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.nav-categories li a:hover{
+    color: #d87093;
+}
+
+/* Keep your existing top-buttons */
+.top-buttons{
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 25px;
 }

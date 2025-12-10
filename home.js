@@ -1,4 +1,4 @@
-const notifBtn = document.getElementById('notif-btn');
+    const notifBtn = document.getElementById('notif-btn');
     const notifList = document.getElementById('notif-list');
 
         notifBtn.addEventListener('click', (e) => {
@@ -21,22 +21,40 @@ const books = [
         cover: "https://m.media-amazon.com/images/I/715XKcO4qZL._AC_UF894,1000_QL80_.jpg"
     },
     {
-        title: "Six of Crows",
-        author: "Leigh Bardugo",
-        genre: "Fantasy / Heist",
-        pages: 465,
+        title: "A Thousand Splendid Suns",
+        author: "Khaled Hosseini",
+        genre: "Historical Fiction",
+        pages: 384,
         rating: "4.7 / 5",
-        desc: "A criminal prodigy assembles an impossible heist team for an impossible job.",
-        cover: "https://m.media-amazon.com/images/I/91v7vX+P9SL._AC_UF1000,1000_QL80_.jpg"
+        desc: "The story of two Afghan women whose lives intersect amid war, oppression, and hope.",
+        cover: "https://m.media-amazon.com/images/I/81xIPfJ6iUL._AC_UF1000,1000_QL80_.jpg"
     },
     {
-        title: "Fourth Wing",
-        author: "Rebecca Yarros",
+        title: "Fearless",
+        author: "Lauren Roberts",
         genre: "Romantasy",
-        pages: 528,
+        pages: 448,
         rating: "4.9 / 5",
-        desc: "A fragile girl enters a brutal dragon rider academy where survival is rare.",
-        cover: "https://m.media-amazon.com/images/I/91KVLRSeBVL.jpg"
+        desc: "The explosive continuation of the Powerless series. As secrets rise and loyalties fracture, Paedyn and Kai face destiny, danger, and a love that threatens everything.",
+        cover: "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1730558434i/214907249.jpg"
+    },
+    {
+        title: "Young Justice #98",
+        author: "DC Comics",
+        genre: "Comic / Superhero",
+        pages: 32,
+        rating: "4.8 / 5",
+        desc: "The Young Justice team faces new threats and emotional challenges as the series reaches an intense turning point.",
+        cover: "https://imgix-media.wbdndc.net/ingest/book/preview/53847b24-bff0-4d69-aa5e-535614b58fcf/fc91f061-8209-45a1-bfcf-953cbc909699/0.jpg"
+    },
+    {
+       title: "Once Upon a Broken Heart",
+        author: "Stephanie Garber",
+        genre: "Romantasy",
+        pages: 416,
+        rating: "4.8 / 5",
+        desc: "A whimsical and enchanting romantasy where Evangeline Fox strikes a dangerous deal with the Prince of Hearts, leading her into a world of magic, love, and betrayal.",
+        cover: "https://m.media-amazon.com/images/I/81cNHxU3pzL._AC_UF1000,1000_QL80_.jpg"
     },
     {
         title: "The Cruel Prince",
@@ -46,15 +64,6 @@ const books = [
         rating: "4.5 / 5",
         desc: "A mortal girl fights for power and survival in the cruel world of the Fae.",
         cover: "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1574535986i/26032825.jpg"
-    },
-    {
-        title: "The Night Circus",
-        author: "Erin Morgenstern",
-        genre: "Fantasy / Romance",
-        pages: 400,
-        rating: "4.7 / 5",
-        desc: "A magical circus appears only at night, hiding a deadly competition between two magicians.",
-        cover: "https://m.media-amazon.com/images/I/81KtmXSqqyL._AC_UF894,1000_QL80_.jpg"
     }
 ];
 
