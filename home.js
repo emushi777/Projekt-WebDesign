@@ -39,7 +39,7 @@ const books = [
         cover: "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1730558434i/214907249.jpg"
     },
     {
-        title: "Young Justice #98",
+        title: "Young Justice (1998)" , 
         author: "DC Comics",
         genre: "Comic / Superhero",
         pages: 32,
