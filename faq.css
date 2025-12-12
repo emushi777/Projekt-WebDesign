@@ -29,8 +29,8 @@ background: #ffffff;
     text-decoration: none;
 }
 
-.logo-text {
-    margin-top: -2px; /* adjust -1px to -3px depending on how tiny you want */
+.logo-text{
+    margin-top: -2px;
 }
 
 
@@ -45,7 +45,7 @@ background: #ffffff;
     font-size: 22px;
 }
 
-.nav-categories {
+.nav-categories{
     list-style: none;
     display: flex;
     align-items: center;
@@ -85,7 +85,7 @@ background: #ffffff;
     color: #555;
 }
 
-.notification-button {
+.notification-button{
     position: relative;
 }
 
