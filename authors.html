@@ -1,78 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Authors - Moonlight Pages</title>
-    <link rel="stylesheet" href="authors.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Authors - Moonlight Pages</title>
+  <link rel="stylesheet" href="authors.css" />
 </head>
+
 <body>
 
-    <div class="topnav">
+  <div class="topnav">
+
     <a href="home.html" class="logo-btn">
-        <ion-icon name="library-outline" class="sidebar-icon"></ion-icon>
-        <span class="logo-text">
-            <span class="pink">Moonlight</span><span class="black">Pages</span>
-        </span>
+      <ion-icon name="library-outline" class="sidebar-icon"></ion-icon>
+      <span class="logo-text">
+        <span class="pink">Moonlight</span><span class="black">Pages</span>
+      </span>
     </a>
 
     <ul class="nav-categories">
-    <li>
+      <li>
         <a href="home.html">
-            <ion-icon name="home-outline"></ion-icon>
-            Home
+          <ion-icon name="home-outline"></ion-icon>
+          Home
         </a>
-    </li>
+      </li>
 
-    <li>
+      <li>
         <a href="authors.html">
-            <ion-icon name="star-outline"></ion-icon>
-            Authors
+          <ion-icon name="star-outline"></ion-icon>
+          Authors
         </a>
-    </li>
+      </li>
 
-    <li>
+      <li>
         <a href="comics.html">
-            <ion-icon name="flash-outline"></ion-icon>
-            Comics
+          <ion-icon name="flash-outline"></ion-icon>
+          Comics
         </a>
-    </li>
+      </li>
 
-    <li>
+      <li>
         <a href="faq-help.html">
-            <ion-icon name="help-circle-outline"></ion-icon>
-            FAQ / Help
+          <ion-icon name="help-circle-outline"></ion-icon>
+          FAQ / Help
         </a>
-    </li>
-</ul>
+      </li>
+    </ul>
 
-        
-        <div class="top-buttons">
-            <div class="notification-button" id="notif-btn">
-                <ion-icon name="notifications-outline"></ion-icon>
-                <div class="notif-list" id="notif-list">
-                    <ul>
-                        <li>New book released!</li>
-                        <li>Discount on bestseller.</li>
-                        <li>Buy your favorite books now!</li>
-                    </ul>
-                </div>
-            </div>
+    <div class="top-buttons">
+      <div class="notification-button" id="notif-btn">
+        <ion-icon name="notifications-outline"></ion-icon>
 
-            <div class="profile-button">
-                <a href="login.html">
-                    <ion-icon name="person-circle-outline"></ion-icon>
-                </a>
-            </div>
+        <div class="notif-list" id="notif-list">
+          <ul>
+            <li>New book released!</li>
+            <li>Discount on bestseller.</li>
+            <li>Buy your favorite books now!</li>
+          </ul>
         </div>
+      </div>
+
+      <div class="profile-button">
+        <a href="login.html">
+          <ion-icon name="person-circle-outline"></ion-icon>
+        </a>
+      </div>
     </div>
-    
-    <script src="authors.js"></script>
+  </div>
 
+  <main class="author-page">
 
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <section class="author-hero">
+      <div class="author-info">
+        <h1>MOST POPULAR AUTHOR OF THE MONTH</h1>
+        <p>
+          One of Kafka's best-known works, The Metamorphosis tells the story of salesman Gregor Samsa,
+          who wakes to find himself inexplicably transformed into a huge insect and struggles to adjust
+          to this condition, as does his family.
+        </p>
+
+        <a href="https://en.wikipedia.org/wiki/Franz_Kafka" target="_blank" class="hero-btn">
+          Learn more
+        </a>
+      </div>
+
+      <div class="author-book">
+        <img
+          src="https://m.media-amazon.com/images/I/81LBl7WSLXL._AC_UF1000,1000_QL80_.jpg"
+          alt="The Metamorphosis"
+        />
+      </div>
+    </section>
+
+    <section class="books-section">
+      <h2>More from Kafka</h2>
+
+      <div class="books-grid">
+
+        <div class="book-card">
+          <img
+            src="https://m.media-amazon.com/images/I/51lgU23tegL._AC_UF1000,1000_QL80_.jpg"
+            alt="The Trial"
+          />
+          <p>The Trial</p>
+        </div>
+
+        <div class="book-card">
+          <img
+            src="https://images.penguinrandomhouse.com/cover/9780805212679"
+            alt="Letters To Milena"
+          />
+          <p>Letters To Milena</p>
+        </div>
+
+        <div class="book-card">
+          <img
+            src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1746885413i/333538.jpg"
+            alt="The Castle"
+          />
+          <p>The Castle</p>
+        </div>
+
+        <div class="book-card">
+          <img
+            src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1444653451i/25842265.jpg"
+            alt="Amerika"
+          />
+          <p>Amerika</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="other-authors">
+      <h2>Explore Other Authors</h2>
+
+      <div class="authors-grid">
+        <a href="https://en.wikipedia.org/wiki/George_Orwell" target="_blank" class="author-card">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/8/82/George_Orwell%2C_c._1940_%2841928180381%29.jpg"
+            alt="George Orwell"
+          />
+          <span>George Orwell</span>
+        </a>
+
+        <a href="https://en.wikipedia.org/wiki/Albert_Camus" target="_blank" class="author-card">
+          <img
+            src="https://naccnaca-biographies.s3.amazonaws.com/17663/albertcamus_bioweb.jpg"
+            alt="Albert Camus"
+          />
+          <span>Albert Camus</span>
+        </a>
+
+        <a href="https://en.wikipedia.org/wiki/Fyodor_Dostoevsky" target="_blank" class="author-card">
+          <img
+            src="https://geniusrevive.com/wp-content/uploads/2017/05/fyodor-dostoevsky.jpg"
+            alt="Fyodor Dostoevsky"
+          />
+          <span>Fyodor Dostoevsky</span>
+        </a>
+
+        <a href="https://en.wikipedia.org/wiki/Virginia_Woolf" target="_blank" class="author-card">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0b/George_Charles_Beresford_-_Virginia_Woolf_in_1902_-_Restoration.jpg"
+            alt="Virginia Woolf"
+          />
+          <span>Virginia Woolf</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 </body>
 </html>
