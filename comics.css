@@ -169,9 +169,12 @@ body {
 
 .books-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 40px;
+  justify-items: center;
 }
+
+
 
 .book-card {
   background: #f8f8f4;
@@ -187,12 +190,12 @@ body {
 
 .book-card img {
   width: 180px;
-  height: 260px;    
-  object-fit: cover;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
   border-radius: 12px;
-  display: block;
-  margin: 0 auto;
 }
+
 
 .book-card p {
   margin-top: 10px;
@@ -201,3 +204,92 @@ body {
   text-align: center;
 }
 
+
+body {
+  overflow-x: hidden;
+}
+
+
+.close-btn {
+  font-size: 28px;
+  cursor: pointer;
+  float: right;
+}
+
+.overlay {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 70px);
+  background: rgba(0,0,0,0.3);
+  display: none;
+  z-index: 999;
+}
+
+.overlay.show {
+  display: block;
+}
+
+
+.book-sidebar {
+  position: fixed;
+  top: 70px;
+  right: 0;
+  width: 250px;
+  height: calc(100% - 70px);
+  background: #8fdcff;
+  padding: 20px;
+
+  border-left: 4px solid #43a9e4;
+
+  box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
+  overflow-y: auto;
+}
+
+.book-sidebar.open {
+  transform: translateX(0);
+}
+
+.book-sidebar img {
+  width: 205px; 
+  max-width: 100%;
+  height: auto; 
+  display: block;
+  margin: 10px auto 20px;
+  border-radius: 12px;
+}
+
+
+
+.book-sidebar h2 {
+  font-size: 20px;
+  margin: 10px 0 14px;
+  text-align: center;
+}
+
+.book-sidebar p {
+  font-size: 15.5px;
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+
+
+body {
+  overflow-x: hidden;
+}
+
+.book-sidebar h2 {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.book-sidebar p {
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}

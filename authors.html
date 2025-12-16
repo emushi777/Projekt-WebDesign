@@ -98,7 +98,12 @@
 
       <div class="books-grid">
 
-        <div class="book-card">
+        <div class="book-card"
+        data-author="Franz Kafka"
+        data-genre="Literature"
+        data-pages="255"
+        data-rating="4.6 / 5"
+        data-desc="A haunting novel about a man arrested and prosecuted by an inaccessible authority for an unknown crime.">
           <img
             src="https://m.media-amazon.com/images/I/51lgU23tegL._AC_UF1000,1000_QL80_.jpg"
             alt="The Trial"
@@ -106,7 +111,12 @@
           <p>The Trial</p>
         </div>
 
-        <div class="book-card">
+        <div class="book-card"
+        data-author="Franz Kafka"
+        data-genre="Letters / Literature"
+        data-pages="250-400"
+        data-rating="4.6 / 5"
+        data-desc="An intimate collection of letters revealing Kafka's emotional depth, vulnerability, and complex love for Milena Jesenská.">
           <img
             src="https://images.penguinrandomhouse.com/cover/9780805212679"
             alt="Letters To Milena"
@@ -114,7 +124,13 @@
           <p>Letters To Milena</p>
         </div>
 
-        <div class="book-card">
+        <div class="book-card"
+          data-author="Franz Kafka"
+          data-genre="Literature"
+          data-pages="352"
+          data-rating="4.4 / 5"
+          data-desc="A surreal and unfinished novel about a man's futile struggle against an incomprehensible bureaucratic system.">
+
           <img
             src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1746885413i/333538.jpg"
             alt="The Castle"
@@ -122,7 +138,13 @@
           <p>The Castle</p>
         </div>
 
-        <div class="book-card">
+        <div class="book-card"
+        data-author="Franz Kafka"
+        data-genre="Literature"
+        data-pages="240"
+        data-rating="4.2 / 5"
+       data-desc="Kafka's first novel, portraying a young immigrant's strange and often absurd experiences in an imagined America.">
+
           <img
             src="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1444653451i/25842265.jpg"
             alt="Amerika"
@@ -175,6 +197,22 @@
 
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+<div id="book-sidebar" class="book-sidebar">
+  <span class="close-btn" id="close-sidebar">&times;</span>
+
+  <img id="sidebar-img" src="" alt="Book cover">
+  <h2 id="sidebar-title"></h2>
+  <p id="sidebar-author"></p>
+  <p id="sidebar-genre"></p>
+  <p id="sidebar-pages"></p>
+  <p id="sidebar-rating"></p>
+  <p id="sidebar-desc"></p>
+</div>
+
+<div id="overlay" class="overlay"></div>
+
+<script src="authors.js"></script>
 
 </body>
 </html>
