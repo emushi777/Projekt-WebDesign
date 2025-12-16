@@ -135,7 +135,6 @@ prevBtn.addEventListener("click", () => {
     showSlide(currentSlide);
 });
 
-// auto slide (optional)
 setInterval(() => {
     currentSlide = (currentSlide + 1) % slides.length;
     showSlide(currentSlide);
@@ -143,7 +142,7 @@ setInterval(() => {
 
 document.querySelectorAll(".challenge-btn[data-book-index]").forEach(btn => {
     btn.addEventListener("click", (e) => {
-        e.stopPropagation(); // ✅ IMPORTANT FIX
+        e.stopPropagation();
 
         const index = Number(btn.dataset.bookIndex);
         showBook(index);

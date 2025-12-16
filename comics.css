@@ -124,6 +124,10 @@ body {
   max-width: 420px;
   position: relative;
   z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .hero-content h1 {
@@ -148,6 +152,7 @@ body {
   position: relative;
   z-index: 3;
   transition: background 0.2s, transform 0.2s;
+  text-decoration: none;
 }
 
 .hero-btn:hover {
