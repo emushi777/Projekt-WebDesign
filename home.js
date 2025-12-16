@@ -94,15 +94,17 @@ function showBook(i) {
     document.getElementById("book-pages").innerText = b.pages;
     document.getElementById("book-rating").innerText = b.rating;
     document.getElementById("book-desc").innerText = b.desc;
-
     document.getElementById("book-cover").src = b.cover;
 
     bookDetails.classList.add("show");
+    document.getElementById("overlay").classList.add("show");
 }
 
 document.addEventListener("click", (e) => {
-    if (!e.target.closest("#book-details") && !e.target.closest(".book")) {
+    if (!e.target.closest("#book-details") && !e.target.closest(".book")) 
+        {
         bookDetails.classList.remove("show");
+        document.getElementById("overlay").classList.remove("show");
     }
 });
 

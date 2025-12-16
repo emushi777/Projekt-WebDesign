@@ -169,20 +169,22 @@ body{
 
 .book-details{
     position: fixed;
-    top: 60px;
-    right: -405px;
+    top: 70px;
+    right: 0;
     width: 270px;
     height: calc(100vh - 100px);
-    background: #ffe6f2;
+    background: #ffe6f2;   
     padding: 20px;
-    border-left: 3px solid #d87093;
-    transition: right 0.3s ease;
+    border-left: 3px solid #d87093; 
+    z-index: 1100;
     overflow-y: auto;
-    z-index: 1001;
+    box-shadow: -4px 0 20px rgba(0,0,0,0.15);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
 }
 
 .book-details.show{
-    right: 0;
+    transform: translateX(0);
 }
 
 .book-cover{
@@ -237,73 +239,20 @@ body{
     transform: scale(1.05);
 }
 
-/* NEW TOP NAV */
-.topnav{
-    width: 100%;
-    height: 70px;
-    background: #fff;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    align-items: center;
-    padding: 0 30px;
-    box-sizing: border-box;
+.overlay{
     position: fixed;
-    top: 0;
+    top: 70px;
     left: 0;
-    z-index: 900;
+    width: 100%;
+    height: calc(100% - 70px);
+    background: rgba(0,0,0,0.25);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
 }
 
-/* Logo button */
-.logo-btn{
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.logo-text .pink{
-    color: #d87093;
-    font-weight: bold;
-    font-size: 22px;
-}
-
-.logo-text .black{
-    color: #000;
-    font-size: 22px;
-}
-
-/* Center the nav categories horizontally in the topnav */
-.nav-categories {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    margin: 0 auto;       /* center horizontally */
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-
-.nav-categories li a{
-    text-decoration: none;
-    color: #222;
-    font-size: 18px;
-    transition: 0.2s;
-}
-
-.nav-categories li a:hover{
-    color: #d87093;
-}
-
-/* Keep your existing top-buttons */
-.top-buttons{
-    position: absolute;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
-    gap: 25px;
+.overlay.show{
+    opacity: 1;
+    pointer-events: auto;
 }
