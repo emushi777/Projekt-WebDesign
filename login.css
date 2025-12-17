@@ -60,6 +60,7 @@ input{
     border: 1px solid #d6a2b1;
     font-size: 16px;
     transition: 0.2s;
+    box-sizing: border-box;
 }
 
 input:focus{
@@ -69,12 +70,34 @@ input:focus{
 }
 
 .error{
-    color: #d87093;
+    color: #d61e52;
     font-size: 14px;
     display: none;
     text-align: left;
     width: 90%;
     margin-left: 5%;
+    margin-top: 3px;
+    margin-bottom: 5px;
+}
+
+.password-wrapper{
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input{
+    width: 95%;
+    padding-right: 40px;
+}
+
+.eye-icon{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 22px;
+    color: #d87093;
+    cursor: pointer;
 }
 
 button{
@@ -102,4 +125,25 @@ a{
 
 a:hover{
     text-decoration: underline;
+}
+
+.field{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.link-text{
+    font-size: 14px;
+}
+
+.link-text a{
+    color: #d87093;
+    font-weight: 500;
 }

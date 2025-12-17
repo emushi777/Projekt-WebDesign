@@ -7,24 +7,37 @@ function validateLogin() {
 
     let valid = true;
 
-    // Email validation
     if (!email.includes("@") || !email.includes(".")) {
         emailError.style.display = "block";
         valid = false;
-    } else {
+    } 
+    else{
         emailError.style.display = "none";
     }
 
-    // Password validation
     if (password.length < 6) {
         passwordError.style.display = "block";
         valid = false;
-    } else {
+    } 
+    else{
         passwordError.style.display = "none";
     }
 
-    // If valid → redirect to home page
-    if (valid) {
+    if(valid){
         window.location.href = "home.html";
+    }
+}
+
+function togglePasswordVisibility(){
+    let passwordField = document.getElementById("password");
+    let eyeIcon = document.querySelector(".eye-icon");
+
+    if(passwordField.type === "password"){
+        passwordField.type = "text";
+        eyeIcon.name = "eye-off-outline";
+    } 
+    else{
+        passwordField.type = "password";
+        eyeIcon.name = "eye-outline";
     }
 }
