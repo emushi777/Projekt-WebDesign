@@ -102,6 +102,15 @@ function showBook(i) {
 
     bookDetails.classList.add("show");
     document.getElementById("overlay").classList.add("show");
+
+    const closeButton = document.getElementById('close-btn');
+    closeButton.removeEventListener('click', closeModal);
+    closeButton.addEventListener('click', closeModal);
+}
+
+function closeModal(){
+    bookDetails.classList.remove("show");
+    document.getElementById("overlay").classList.remove("show");
 }
 
 document.addEventListener("click", (e) => {
