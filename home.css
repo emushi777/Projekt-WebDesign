@@ -199,35 +199,6 @@ body{
     margin-bottom: 20px;
 }
 
-.reading-challenge-box {
-    margin-left: 40px; 
-    margin-top: -35px;
-    width: calc(100% - 40px - 40px);
-    height: 250px;
-    background: #f5f7ef;
-    border: 2px solid #e5e5e5;
-    padding: 20px;
-    border-radius: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-    box-sizing: border-box;
-}
-
-.reading-challenge-box h2 {
-    margin: 0 0 10px;
-    font-size: 22px;
-    color: #1a1a1a;
-}
-
-.reading-challenge-box img{
-    width: 230px;
-    height: 230px;
-    object-fit: cover;
-    border-radius: 10px;
-}
-
 .challenge-btn {
     background-color: #d87093; 
     color: white;
