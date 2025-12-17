@@ -8,17 +8,22 @@
 <body>
 
     <div class="container">
-        <h2>Login</h2>
+        <div class="left-side">
+            <h2>Welcome Back</h2>
+            <p>Log in to continue exploring your favorite books.</p>
+        </div>
 
-        <input id="email" type="email" placeholder="Email">
-        <p class="error" id="emailError">Please enter a valid email.</p>
+        <div class="right-side">
+            <input id="email" type="email" placeholder="Email">
+            <p class="error" id="emailError">Please enter a valid email.</p>
 
-        <input id="password" type="password" placeholder="Password">
-        <p class="error" id="passwordError">Password must be at least 6 characters.</p>
+            <input id="password" type="password" placeholder="Password">
+            <p class="error" id="passwordError">Password must be at least 6 characters.</p>
 
-        <button onclick="validateLogin()">Login</button>
+            <button onclick="validateLogin()">Login</button>
 
-        <p>Don't have an account? <a href="register.html">Register</a></p>
+            <p>Don't have an account? <a href="register.html">Register</a></p>
+        </div>
     </div>
 
 <script src="login.js"></script>
