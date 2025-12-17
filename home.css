@@ -116,24 +116,23 @@ body{
 
 .container{
     padding-top: 120px;
-    margin-left: 270px;
+    margin-left: 0;
     position: relative;
 }
 
 .recommended{
-    position: fixed;
-    bottom: 20px;
-    left: 40px;
-    width: calc(100% - 40px - 40px);
+    position: relative;
+    width: calc(100% - 80px);
+    margin: -20px 40px 30px;
     background: #f5f7ef;
     border: 2px solid #e5e5e5;
     border-radius: 12px;
     padding: 20px;
     box-sizing: border-box;
-    text-align: center;
+    text-align: left;
     display: flex;
     flex-direction: column;
-    gap: 15;
+    gap: 15px;
 }
 
 .recommended h2{
@@ -233,13 +232,13 @@ body{
 }
 
 .hero-slider {
-    margin-top: 90px;
-    margin-left: 40px;
+    position: relative;
+    top: -26px;
+    margin: 0 40px 20px;
     width: calc(100% - 80px);
     height: 420px;
     border-radius: 18px;
     overflow: hidden;
-    position: relative;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
