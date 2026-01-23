@@ -25,7 +25,7 @@
 
             <button onclick="validateLogin()">Login</button>
 
-            <p>Don't have an account? <a href="register.html">Register</a></p>
+            <p>Don't have an account? <a href="register.php">Register</a></p>
         </div>
     </div>
 

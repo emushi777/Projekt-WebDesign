@@ -3,11 +3,11 @@ function togglePassword(id, icon){
 
     if(input.type === "password"){
         input.type = "text";
-        icon.setAttribute("name", "eye-off-outline"); // closed eye
+        icon.setAttribute("name", "eye-off-outline");
     } 
     else{
         input.type = "password";
-        icon.setAttribute("name", "eye-outline"); // open eye
+        icon.setAttribute("name", "eye-outline");
     }
 }
 
@@ -19,27 +19,44 @@ function validateRegister(){
 
     let valid = true;
 
-    document.getElementById("nameError").style.display = name.length < 2 ? "block" : "none";
-        if(name.length < 2){ 
-            valid = false;
-        }
+    const nameRegex = /^[A-Za-zÀ-ž\s]{2,}$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordRegex =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d^_!@#$%&*]{8,16}$/;
 
-    document.getElementById("emailError").style.display = (!email.includes("@") || !email.includes(".")) ? "block" : "none";
-        if(!email.includes("@") || !email.includes(".")){ 
-            valid = false;
-        }
+    if(!nameRegex.test(name)){
+        document.getElementById("nameError").style.display = "block";
+        valid = false;
+    } 
+    else{
+        document.getElementById("nameError").style.display = "none";
+    }
 
-    document.getElementById("passwordError").style.display = password.length < 6 ? "block" : "none";
-        if(password.length < 6){
-            valid = false;
-        }
+    if(!emailRegex.test(email)){
+        document.getElementById("emailError").style.display = "block";
+        valid = false;
+    }
+    else{
+        document.getElementById("emailError").style.display = "none";
+    }
 
-    document.getElementById("confirmPasswordError").style.display = (confirmPassword !== password) ? "block" : "none";
-        if(confirmPassword !== password){
-            valid = false;
-        }
+    if(!passwordRegex.test(password)){
+        document.getElementById("passwordError").style.display = "block";
+        valid = false;
+    } 
+    else{
+        document.getElementById("passwordError").style.display = "none";
+    }
+
+    if(confirmPassword !== password){
+        document.getElementById("confirmPasswordError").style.display = "block";
+        valid = false;
+    } 
+    else{
+        document.getElementById("confirmPasswordError").style.display = "none";
+    }
 
     if(valid){
-        window.location.href = "home.html";
+        window.location.href = "home.php";
     }
 }

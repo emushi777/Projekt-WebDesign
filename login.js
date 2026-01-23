@@ -7,7 +7,12 @@ function validateLogin() {
 
     let valid = true;
 
-    if (!email.includes("@") || !email.includes(".")) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordRegex =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d^_!@#$%&*]{8,16}$/;
+
+
+    if(!emailRegex.test(email)){
         emailError.style.display = "block";
         valid = false;
     } 
@@ -15,7 +20,7 @@ function validateLogin() {
         emailError.style.display = "none";
     }
 
-    if (password.length < 6) {
+    if(!passwordRegex.test(password)){
         passwordError.style.display = "block";
         valid = false;
     } 
@@ -24,7 +29,7 @@ function validateLogin() {
     }
 
     if(valid){
-        window.location.href = "home.html";
+        window.location.href = "home.php";
     }
 }
 
