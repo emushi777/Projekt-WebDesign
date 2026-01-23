@@ -49,7 +49,7 @@
 
         </div>
 
-        <p class="link-text">Already have an account? <a href="login.html">Login</a></p>
+        <p class="link-text">Already have an account? <a href="login.php">Login</a></p>
     </div>
 </div>
 

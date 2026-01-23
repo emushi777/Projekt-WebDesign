@@ -11,7 +11,7 @@
 
   <div class="topnav">
 
-    <a href="home.html" class="logo-btn">
+    <a href="home.php" class="logo-btn">
       <ion-icon name="library-outline" class="sidebar-icon"></ion-icon>
       <span class="logo-text">
         <span class="pink">Moonlight</span><span class="black">Pages</span>
@@ -20,28 +20,28 @@
 
     <ul class="nav-categories">
       <li>
-        <a href="home.html">
+        <a href="home.php">
           <ion-icon name="home-outline"></ion-icon>
           Home
         </a>
       </li>
 
       <li>
-        <a href="authors.html">
+        <a href="authors.php">
           <ion-icon name="star-outline"></ion-icon>
           Authors
         </a>
       </li>
 
       <li>
-        <a href="comics.html">
+        <a href="comics.php">
           <ion-icon name="flash-outline"></ion-icon>
           Comics
         </a>
       </li>
 
       <li>
-        <a href="faq-help.html">
+        <a href="faq-help.php">
           <ion-icon name="help-circle-outline"></ion-icon>
           FAQ / Help
         </a>
@@ -62,7 +62,7 @@
       </div>
 
       <div class="profile-button">
-        <a href="login.html">
+        <a href="login.php">
           <ion-icon name="person-circle-outline"></ion-icon>
         </a>
       </div>
