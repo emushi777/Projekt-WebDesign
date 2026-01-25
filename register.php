@@ -32,7 +32,7 @@
                     <input id="password" type="password" placeholder="Password">
                     <ion-icon class="eye-icon" name="eye-outline" onclick="togglePassword('password', this)"></ion-icon>
                 </div>
-            <p class="error" id="passwordError">Password must be at least 6 characters.</p>
+            <p class="error" id="passwordError">Password must contain 8–16 characters, including uppercase, lowercase, number, and special character.</p>
             </div>
 
             <div class="field">
