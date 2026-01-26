@@ -1,13 +1,14 @@
 <?php
-$serverName = "EMUSHI";
-$connectionOptions = [
-    "Database" => "projekti_login",
-    "Uid" => "",
-    "PWD" => ""
-];
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db   = "web_project";
+$port = 3307;
 
-$conn = sqlsrv_connect($serverName, $connectionOptions);
-
-if ($conn === false) {
-    die(print_r(sqlsrv_errors(), true));
+$conn = mysqli_connect($host, $user, $pass, $db, $port);
+if (!$conn) {
+    die("DB connection failed");
 }
+
+session_start();
+?>
