@@ -10,5 +10,4 @@ if (!$conn) {
     die("DB connection failed");
 }
 
-session_start();
 ?>

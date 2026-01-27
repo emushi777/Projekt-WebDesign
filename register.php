@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "config/db.php";
 
 if(isset($_SESSION['user_id'])){
@@ -6,7 +7,7 @@ if(isset($_SESSION['user_id'])){
     exit;
 }
 
-if(isset($_POST['register'])){
+if($_SERVER['REQUEST_METHOD'] === 'POST'){
     $name  = $_POST['name'];
     $email = $_POST['email'];
     $pass  = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -48,7 +49,7 @@ if(isset($_POST['register'])){
 
 
     <div class="right-side">
-        <div class="form-group" method="POST" action="register.php">
+        <form class="form-group" method="POST" action="register.php">
 
             <div class="field">
                 <input id="name" type="text" placeholder="Full Name">
@@ -80,7 +81,7 @@ if(isset($_POST['register'])){
                 <button type="submit" onclick="validateRegister()">Register</button>
             </div>
 
-        </div>
+        </form>
 
         <p class="link-text">Already have an account? <a href="login.php">Login</a></p>
     </div>

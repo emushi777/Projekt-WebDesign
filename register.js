@@ -56,7 +56,5 @@ function validateRegister(){
         document.getElementById("confirmPasswordError").style.display = "none";
     }
 
-    if(valid){
-        window.location.href = "home.php";
-    }
+    return valid;
 }
