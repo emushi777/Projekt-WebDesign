@@ -51,16 +51,22 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         </div>
 
         <div class="right-side">
-            <input id="email" type="email" placeholder="Email">
-            <p class="error" id="emailError">Please enter a valid email.</p>
+            <form action="login.php" method="POST" id="loginForm">
+                <input id="email" name="email" type="email" placeholder="Email" required>
+                <p class="error" id="emailError">Ju lutem shënoni një email valid.</p>
 
-            <div class="password-wrapper">
-                <input id="password" type="password" placeholder="Password">
-                <ion-icon class="eye-icon" name="eye-outline" onclick="togglePasswordVisibility()"></ion-icon>
-            </div>
-            <p class="error" id="passwordError">Password must contain 8–16 characters, including uppercase, lowercase, number, and special character.</p>
+                <div class="password-wrapper">
+                    <input id="password" name="password" type="password" placeholder="Password" required>
+                    <ion-icon class="eye-icon" name="eye-outline" onclick="togglePasswordVisibility()"></ion-icon>
+                </div>
+                <p class="error" id="passwordError">Passwordi duhet të jetë 8-16 karaktere.</p>
 
-            <button onclick="validateLogin()">Login</button>
+                <button type="submit">Login</button>
+            </form>
+            
+            <?php if(isset($_SESSION['error'])): ?>
+                <p style="color: red; margin-top: 10px;"><?php echo $_SESSION['error']; unset($_SESSION['error']); ?></p>
+            <?php endif; ?>
 
             <p>Don't have an account? <a href="register.php">Register</a></p>
         </div>

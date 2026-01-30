@@ -1,4 +1,4 @@
-function validateLogin() {
+function validateLogin(event){
     let email = document.getElementById("email").value.trim();
     let password = document.getElementById("password").value.trim();
 
@@ -8,9 +8,7 @@ function validateLogin() {
     let valid = true;
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const passwordRegex =
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d^_!@#$%&*]{8,16}$/;
-
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z\d])[A-Za-z\d^_!@#$%&*]{8,16}$/;
 
     if(!emailRegex.test(email)){
         emailError.style.display = "block";
@@ -28,9 +26,11 @@ function validateLogin() {
         passwordError.style.display = "none";
     }
 
-    if(valid){
-        window.location.href = "home.php";
+    if(!valid){
+        event.preventDefault();
+        return false;
     }
+    return true;
 }
 
 function togglePasswordVisibility(){

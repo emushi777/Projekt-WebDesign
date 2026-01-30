@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,10 +63,15 @@
                 </div>
             </div>
 
-            <div class="profile-button">
-                <a href="login.php">
-                    <ion-icon name="person-circle-outline"></ion-icon>
-                </a>
+            <div class="profile-menu">
+                <ion-icon name="person-circle-outline" class="profile-icon" id="profile-btn"></ion-icon>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <?php if(isset($_SESSION['user_id'])): ?>
+                        <a href="logout.php">Logout</a>
+                    <?php else: ?>
+                        <a href="login.php">Login</a>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
     </div>
@@ -124,6 +133,10 @@
 
     
     <div id="overlay" class="overlay"></div>
+
+    <script>
+    const isLoggedIn = <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>;
+    </script>
 
     <script src="home.js"></script>
 
