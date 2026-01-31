@@ -1,37 +1,37 @@
 <?php
 session_start();
-require 'config/db.php';
+require "config/db.php";
 
-if($_SERVER['REQUEST_METHOD'] === 'POST'){
+$error = "";
 
-    $email = trim($_POST['email']);
-    $password = $_POST['password'];
+if($_SERVER["REQUEST_METHOD"] === "POST"){
 
-    $stmt = $conn->prepare("SELECT id, password FROM users WHERE email = ?");
+    $email = trim($_POST["email"]);
+    $password = $_POST["password"];
+
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
+
     $result = $stmt->get_result();
 
     if($result->num_rows === 1){
         $user = $result->fetch_assoc();
 
-        if(password_verify($password, $user['password'])){
-
-            $_SESSION['user_id'] = $user['id'];
-
-            header("Location: home.php"); // 👉 këtu
+        if(password_verify($password, $user["password"])){
+            $_SESSION["user_id"] = $user["id"];
+            $_SESSION["name"] = $user["name"];
+            $_SESSION["role"] = $user["role"];
+            header("Location: home.php");
             exit;
-        } 
+        }
         else{
-            $_SESSION['error'] = "Password i gabuar.";
+            $error = "Password i gabuar";
         }
     } 
     else{
-        $_SESSION['error'] = "Email nuk ekziston.";
+        $error = "Email nuk ekziston";
     }
-
-    header("Location: login.php");
-    exit;
 }
 ?>
 
@@ -51,7 +51,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
         </div>
 
         <div class="right-side">
-            <form action="login.php" method="POST" id="loginForm">
+            <form action="login.php" method="POST" id="loginForm" onsubmit="return validateLogin(event)">
                 <input id="email" name="email" type="email" placeholder="Email" required>
                 <p class="error" id="emailError">Ju lutem shënoni një email valid.</p>
 
