@@ -7,7 +7,6 @@ if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin'){
     exit;
 }
 
-// Merr të dhënat nga databaza
 $users    = $conn->query("SELECT id, name, email, role FROM users");
 $news     = $conn->query("SELECT n.id, n.title, n.created_at, u.name as author FROM news n JOIN users u ON n.created_by = u.id");
 $contacts = $conn->query("SELECT id, name, email, message, created_at FROM contacts");
@@ -31,7 +30,6 @@ $contacts = $conn->query("SELECT id, name, email, message, created_at FROM conta
 <h1>Dashboard - Mirë se vjen, <?php echo htmlspecialchars($_SESSION['name']); ?> 👋</h1>
 <a href="logout.php" class="logout">[Dil]</a>
 
-<!-- 👥 Tabela e Përdoruesve -->
 <h2>Përdoruesit</h2>
 <table>
     <tr>
@@ -50,7 +48,6 @@ $contacts = $conn->query("SELECT id, name, email, message, created_at FROM conta
     <?php endwhile; ?>
 </table>
 
-<!-- 📰 Tabela e Lajmeve / Produkteve -->
 <h2>Lajmet / Produktet</h2>
 <table>
     <tr>
@@ -69,7 +66,6 @@ $contacts = $conn->query("SELECT id, name, email, message, created_at FROM conta
     <?php endwhile; ?>
 </table>
 
-<!-- ✉️ Tabela e Kontaktit -->
 <h2>Mesazhet nga Kontakti</h2>
 <table>
     <tr>
