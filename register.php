@@ -26,6 +26,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     } 
     else{
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        $role = 'user';
 
         $stmt = $conn->prepare("INSERT INTO users (name, email, password) VALUES (?, ?, ?)");
         $stmt->bind_param("sss", $name, $email, $hashedPassword);
