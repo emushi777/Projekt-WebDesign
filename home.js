@@ -10,7 +10,7 @@
             notifList.classList.remove('show'); 
         });
 
-const books = [
+/*const books = [
     {
         title: "The Poppy War",
         author: "R.F. Kuang",
@@ -65,7 +65,7 @@ const books = [
         desc: "A mortal girl fights for power and survival in the cruel world of the Fae.",
         cover: "https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1574535986i/26032825.jpg"
     }
-];
+];*/
 
     const bookList = document.getElementById("book-list");
     const bookDetails = document.getElementById("book-details");

@@ -116,7 +116,27 @@ session_start();
 
         <div class="recommended">
             <h2>Recommended</h2>
-        <div class="book-list" id="book-list"></div>
+        <div class="book-list" id="book-list">
+            <?php
+            require 'config/db.php';
+
+            $query = "SELECT * FROM items WHERE page = 'home'";
+            $result = mysqli_query($conn, $query);
+
+            if(mysqli_num_rows($result) > 0){
+                while($row = mysqli_fetch_assoc($result)){
+                    echo '<div class="book" data-book-id="' . $row['id'] . '">';
+                    echo '<img src="' . $row['image_url'] . '" alt="' . htmlspecialchars($row['title']) . '" class="book-cover">';
+                    echo '<p class="book-title">' . htmlspecialchars($row['title']) . '</p>';
+                    echo '</div>';
+                }
+            } 
+            else{
+                echo "<p>Asnjë libër nuk u gjet për këtë faqe.</p>";
+            }
+            ?>
+        </div>
+
         </div>
 
         <div class="book-details" id="book-details">
