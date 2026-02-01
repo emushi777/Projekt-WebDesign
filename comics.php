@@ -131,7 +131,7 @@ $comics = $itemModel->getByPage('comics');
         <p>Robin : Son of Batman Vol.1</p>
       </div>
       </div>
-      <h2>From Database</h2>
+      <h2>Recently added</h2>
 
       <div class="books-grid">
      <?php while ($comic = $comics->fetch_assoc()): ?>
