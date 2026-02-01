@@ -87,7 +87,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_news'])) {
 </head>
 <body>
 
-<h1>Dashboard - Mirë se vjen, <?php echo htmlspecialchars($_SESSION['name']); ?> 👋</h1>
+<h1>Dashboard - Welcome</h1>
 <a href="logout.php" class="logout">[Dil]</a>
 <?php if ($successMsg) echo "<p style='color:green;'>" . htmlspecialchars($successMsg) . "</p>"; ?>
 <?php if ($errorMsg) echo "<p style='color:red;'>" . htmlspecialchars($errorMsg) . "</p>"; ?>
