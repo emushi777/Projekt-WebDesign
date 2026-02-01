@@ -4,6 +4,9 @@ require_once "classes/Database.php";
 require_once "classes/User.php";
 require_once "classes/News.php";
 require_once "classes/Contact.php";
+require_once "classes/FileUpload.php";
+require_once "classes/Item.php";
+
 
 $conn = Database::connect();
 
@@ -21,6 +24,49 @@ $contactModel = new Contact($conn);
 $users = $userModel->getAll();
 $news = $newsModel->getAllWithAuthor();
 $contacts = $contactModel->getAll();
+$itemModel = new Item($conn);
+$uploader = new FileUpload();
+
+$successMsg = "";
+$errorMsg = "";
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_item'])) {
+    try {
+        $path = $uploader->upload($_FILES['item_file'], "item");
+        $itemModel->create(
+            $_POST['item_title'],
+            $_POST['item_author'],
+            $_POST['item_genre'],
+            $_POST['item_pages'],
+            $_POST['item_rating'],
+            $_POST['item_description'],
+            $path,
+            $_POST['item_page'],
+            (int)$_SESSION['user_id']
+        );
+        $successMsg = "Item added successfully!";
+    } catch (Exception $e) {
+        $errorMsg = $e->getMessage();
+    }
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_news'])) {
+    try {
+        $path = null;
+        if (!empty($_FILES['news_file']['name'])) {
+            $path = $uploader->upload($_FILES['news_file'], "news");
+        }
+        $newsModel->create(
+            $_POST['news_title'],
+            $_POST['news_content'],
+            $path,
+            (int)$_SESSION['user_id']
+        );
+        $successMsg = "News added successfully!";
+    } catch (Exception $e) {
+        $errorMsg = $e->getMessage();
+    }
+}
 
 ?>
 
@@ -41,6 +87,9 @@ $contacts = $contactModel->getAll();
 
 <h1>Dashboard - Mirë se vjen, <?php echo htmlspecialchars($_SESSION['name']); ?> 👋</h1>
 <a href="logout.php" class="logout">[Dil]</a>
+<?php if ($successMsg) echo "<p style='color:green;'>" . htmlspecialchars($successMsg) . "</p>"; ?>
+<?php if ($errorMsg) echo "<p style='color:red;'>" . htmlspecialchars($errorMsg) . "</p>"; ?>
+
 
 <!-- 👥 Tabela e Përdoruesve -->
 <h2>Përdoruesit</h2>
@@ -100,6 +149,31 @@ $contacts = $contactModel->getAll();
     </tr>
     <?php endwhile; ?>
 </table>
+<h2>Add Comic/Author Item</h2>
+<form method="POST" enctype="multipart/form-data">
+  <input name="item_title" placeholder="Title" required><br>
+  <input name="item_author" placeholder="Author" required><br>
+  <input name="item_genre" placeholder="Genre" required><br>
+  <input name="item_pages" placeholder="Pages" required><br>
+  <input name="item_rating" placeholder="Rating" required><br>
+  <textarea name="item_description" placeholder="Description" required></textarea><br>
+
+  <select name="item_page" required>
+    <option value="comics">Comics</option>
+    <option value="authors">Authors</option>
+  </select><br>
+
+  <input type="file" name="item_file" accept="image/*,.pdf" required><br>
+  <button type="submit" name="add_item">Add Item</button>
+</form>
+
+<h2>Add News</h2>
+<form method="POST" enctype="multipart/form-data">
+  <input name="news_title" placeholder="Title" required><br>
+  <textarea name="news_content" placeholder="Content" required></textarea><br>
+  <input type="file" name="news_file" accept="image/*,.pdf"><br>
+  <button type="submit" name="add_news">Add News</button>
+</form>
 
 </body>
 </html>
