@@ -1,3 +1,12 @@
+<?php
+require_once "classes/Database.php";
+require_once "classes/Item.php";
+
+$conn = Database::connect();
+$itemModel = new Item($conn);
+$books = $itemModel->getByPage('authors');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,8 +162,26 @@
           />
           <p>Amerika</p>
         </div>
+        </div>
+        <h2>Latest additions</h2>
 
-      </div>
+    <div class="books-grid">
+    <?php while ($book = $books->fetch_assoc()): ?>
+    <div class="book-card"
+      data-author="<?php echo htmlspecialchars($book['author']); ?>"
+      data-genre="<?php echo htmlspecialchars($book['genre']); ?>"
+      data-pages="<?php echo htmlspecialchars($book['pages']); ?>"
+      data-rating="<?php echo htmlspecialchars($book['rating']); ?>"
+      data-desc="<?php echo htmlspecialchars($book['description']); ?>">
+
+      <img src="<?php echo htmlspecialchars($book['image_url']); ?>" alt="<?php echo htmlspecialchars($book['title']); ?>">
+      <p><?php echo htmlspecialchars($book['title']); ?></p>
+     </div>
+     <?php endwhile; ?>
+     </div>
+     </div>
+
+
     </section>
 
     <section class="other-authors">

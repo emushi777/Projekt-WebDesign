@@ -1,13 +1,20 @@
 <?php
-$host = "localhost";
+$host = "127.0.0.1";
 $user = "root";
 $pass = "";
 $db   = "web_project";
-$port = 3307;
 
-$conn = mysqli_connect($host, $user, $pass, $db, $port);
-if (!$conn) {
-    die("DB connection failed");
+$portOptions = [3307, 3306];
+$conn = null;
+
+foreach ($portOptions as $port) {
+    $conn = mysqli_connect($host, $user, $pass, $db, $port);
+    if($conn){
+        break;
+    }
 }
 
+if(!$conn){
+    die("Database connection failed on all ports.");
+}
 ?>

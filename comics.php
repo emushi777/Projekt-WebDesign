@@ -1,3 +1,12 @@
+<?php
+require_once "classes/Database.php";
+require_once "classes/Item.php";
+
+$conn = Database::connect();
+$itemModel = new Item($conn);
+$comics = $itemModel->getByPage('comics');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -121,6 +130,24 @@
         <img src="https://static.dc.com/dc/files/default_images/robin_sob_1_5b24403f0dbe70.64286619.jpg">
         <p>Robin : Son of Batman Vol.1</p>
       </div>
+      </div>
+      <h2>Recently added</h2>
+
+      <div class="books-grid">
+     <?php while ($comic = $comics->fetch_assoc()): ?>
+     <div class="book-card"
+      data-author="<?php echo htmlspecialchars($comic['author']); ?>"
+      data-genre="<?php echo htmlspecialchars($comic['genre']); ?>"
+      data-pages="<?php echo htmlspecialchars($comic['pages']); ?>"
+      data-rating="<?php echo htmlspecialchars($comic['rating']); ?>"
+      data-desc="<?php echo htmlspecialchars($comic['description']); ?>">
+
+      <img src="<?php echo htmlspecialchars($comic['image_url']); ?>" alt="<?php echo htmlspecialchars($comic['title']); ?>">
+      <p><?php echo htmlspecialchars($comic['title']); ?></p>
+    </div>
+  <?php endwhile; ?>
+</div>
+
     </div>
   </div>
 </section>
