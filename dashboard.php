@@ -1,6 +1,12 @@
 <?php
 session_start();
-require "config/db.php";
+require_once "classes/Database.php";
+require_once "classes/User.php";
+require_once "classes/News.php";
+require_once "classes/Contact.php";
+
+$conn = Database::connect();
+
 
 if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin'){
     header("Location: login.php");
@@ -8,9 +14,14 @@ if(!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin'){
 }
 
 // Merr të dhënat nga databaza
-$users    = $conn->query("SELECT id, name, email, role FROM users");
-$news     = $conn->query("SELECT n.id, n.title, n.created_at, u.name as author FROM news n JOIN users u ON n.created_by = u.id");
-$contacts = $conn->query("SELECT id, name, email, message, created_at FROM contacts");
+$userModel = new User($conn);
+$newsModel = new News($conn);
+$contactModel = new Contact($conn);
+
+$users = $userModel->getAll();
+$news = $newsModel->getAllWithAuthor();
+$contacts = $contactModel->getAll();
+
 ?>
 
 <!DOCTYPE html>
