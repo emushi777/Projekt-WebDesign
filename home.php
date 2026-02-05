@@ -125,7 +125,15 @@ session_start();
 
             if(mysqli_num_rows($result) > 0){
                 while($row = mysqli_fetch_assoc($result)){
-                    echo '<div class="book" data-book-id="' . $row['id'] . '">';
+                    echo '<div class="book"
+                        data-title="' . htmlspecialchars($row['title']) . '"
+                        data-author="' . htmlspecialchars($row['author']) . '"
+                        data-genre="' . htmlspecialchars($row['genre']) . '"
+                        data-pages="' . htmlspecialchars($row['pages']) . '"
+                        data-rating="' . htmlspecialchars($row['rating']) . '"
+                        data-desc="' . htmlspecialchars($row['description']) . '"
+                        data-image="' . htmlspecialchars($row['image_url']) . '">';
+
                     echo '<img src="' . $row['image_url'] . '" alt="' . htmlspecialchars($row['title']) . '" class="book-cover">';
                     echo '<p class="book-title">' . htmlspecialchars($row['title']) . '</p>';
                     echo '</div>';

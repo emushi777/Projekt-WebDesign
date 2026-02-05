@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function () {
+
     const notifBtn = document.getElementById('notif-btn');
     const notifList = document.getElementById('notif-list');
 
@@ -69,6 +71,48 @@
 
     const bookList = document.getElementById("book-list");
     const bookDetails = document.getElementById("book-details");
+
+    document.querySelectorAll(".challenge-btn").forEach(btn => {
+    btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+
+        const index = Number(btn.dataset.bookIndex);
+        const books = document.querySelectorAll(".book");
+
+        if (!books[index]) return;
+
+        const book = books[index];
+
+        document.getElementById("book-title").innerText = book.dataset.title;
+        document.getElementById("book-author").innerText = book.dataset.author;
+        document.getElementById("book-genre").innerText = book.dataset.genre;
+        document.getElementById("book-pages").innerText = book.dataset.pages;
+        document.getElementById("book-rating").innerText = book.dataset.rating;
+        document.getElementById("book-desc").innerText = book.dataset.desc;
+        document.getElementById("book-cover").src = book.dataset.image;
+
+        bookDetails.classList.add("show");
+        document.getElementById("overlay").classList.add("show");
+    });
+});
+
+    document.querySelectorAll(".book").forEach(book => {
+    book.addEventListener("click", function (e) {
+        e.stopPropagation();
+
+        document.getElementById("book-title").innerText = book.dataset.title;
+        document.getElementById("book-author").innerText = book.dataset.author;
+        document.getElementById("book-genre").innerText = book.dataset.genre;
+        document.getElementById("book-pages").innerText = book.dataset.pages;
+        document.getElementById("book-rating").innerText = book.dataset.rating;
+        document.getElementById("book-desc").innerText = book.dataset.desc;
+        document.getElementById("book-cover").src = book.dataset.image;
+
+        bookDetails.classList.add("show");
+        document.getElementById("overlay").classList.add("show");
+        });
+    });
+
     bookDetails.addEventListener("click", (e) => {
     e.stopPropagation();
 });
@@ -89,7 +133,7 @@
     });
 }
 
-function showBook(i) {
+/*function showBook(i) {
     const b = books[i];
 
     document.getElementById("book-title").innerText = b.title;
@@ -106,12 +150,21 @@ function showBook(i) {
     const closeButton = document.getElementById('close-btn');
     closeButton.removeEventListener('click', closeModal);
     closeButton.addEventListener('click', closeModal);
-}
+}*/
 
 function closeModal(){
     bookDetails.classList.remove("show");
     document.getElementById("overlay").classList.remove("show");
 }
+
+const closeBtn = document.getElementById("close-btn");
+if (closeBtn) {
+    closeBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        closeModal();
+    });
+}
+
 
 document.addEventListener("click", (e) => {
     if (!e.target.closest("#book-details") && !e.target.closest(".book")) 
@@ -121,7 +174,7 @@ document.addEventListener("click", (e) => {
     }
 });
 
-loadBooks();
+//loadBooks();
 
 const slides = document.querySelectorAll(".slide");
 const nextBtn = document.querySelector(".next");
@@ -149,14 +202,34 @@ setInterval(() => {
     showSlide(currentSlide);
 }, 6000);
 
-document.querySelectorAll(".challenge-btn[data-book-index]").forEach(btn => {
+document.querySelectorAll(".challenge-btn").forEach(btn => {
+    btn.addEventListener("click", function (e) {
+        e.stopPropagation();
+
+        if (lastSelectedBook) {
+            document.getElementById("book-title").innerText = lastSelectedBook.dataset.title;
+            document.getElementById("book-author").innerText = lastSelectedBook.dataset.author;
+            document.getElementById("book-genre").innerText = lastSelectedBook.dataset.genre;
+            document.getElementById("book-pages").innerText = lastSelectedBook.dataset.pages;
+            document.getElementById("book-rating").innerText = lastSelectedBook.dataset.rating;
+            document.getElementById("book-desc").innerText = lastSelectedBook.dataset.desc;
+            document.getElementById("book-cover").src = lastSelectedBook.dataset.image;
+        }
+
+        bookDetails.classList.add("show");
+        document.getElementById("overlay").classList.add("show");
+    });
+});
+
+
+/*document.querySelectorAll(".challenge-btn[data-book-index]").forEach(btn => {
     btn.addEventListener("click", (e) => {
         e.stopPropagation();
 
         const index = Number(btn.dataset.bookIndex);
         showBook(index);
     });
-});
+});*/
 
 const profileBtn = document.getElementById('profile-btn');
 const profileDropdown = document.getElementById('profile-dropdown');
@@ -177,4 +250,5 @@ document.addEventListener('click', function() {
     if(profileDropdown){
         profileDropdown.classList.remove('active');
     }
+});
 });
