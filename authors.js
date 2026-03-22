@@ -68,7 +68,6 @@ window.onload = () => {
     overlay.classList.remove('show');
   }
 
-  // Profile dropdown
   const profileBtn = document.getElementById('profile-btn');
   const profileDropdown = document.getElementById('profile-dropdown');
 
