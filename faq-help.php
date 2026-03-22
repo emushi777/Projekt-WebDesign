@@ -70,10 +70,15 @@ header("Expires: 0");
                 </div>
             </div>
 
-            <div class="profile-button">
-                <a href="login.php">
-                    <ion-icon name="person-circle-outline"></ion-icon>
-                </a>
+            <div class="profile-menu">
+                <ion-icon name="person-circle-outline" class="profile-icon" id="profile-btn"></ion-icon>
+                <div class="profile-dropdown" id="profile-dropdown">
+                    <?php if(isset($_SESSION['user_id'])): ?>
+                        <a href="logout.php">Logout</a>
+                    <?php else: ?>
+                        <a href="login.php">Login</a>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
     </div>
@@ -116,6 +121,11 @@ header("Expires: 0");
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script>
+    const isLoggedIn = <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>;
+    </script>
+
     <script src="faq.js"></script>
     
 </body>
