@@ -257,6 +257,11 @@ $books = $itemModel->getByPage('authors');
 
     <script>
     const isLoggedIn = <?php echo isset($_SESSION['user_id']) ? 'true' : 'false'; ?>;
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted || (window.performance && window.performance.navigation.type === 2)) {
+            window.location.href = 'login.php';
+        }
+    });
     </script>
 
 <script src="authors.js"></script>
