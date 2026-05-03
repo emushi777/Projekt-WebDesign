@@ -28,10 +28,16 @@ $users = $userModel->getAll();
 $news = $newsModel->getAllWithAuthor();
 $contacts = $contactModel->getAll();
 $itemModel = new Item($conn);
+$items = $itemModel->getAll();
 $uploader = new FileUpload();
 
 $successMsg = "";
 $errorMsg = "";
+
+$editItem = null;
+if (isset($_GET['edit'])) {
+    $editItem = $itemModel->getById((int)$_GET['edit']);
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_item'])) {
     try {
@@ -66,6 +72,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_news'])) {
             (int)$_SESSION['user_id']
         );
         $successMsg = "News added successfully!";
+    } catch (Exception $e) {
+        $errorMsg = $e->getMessage();
+    }
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_item'])) {
+    try {
+        $path = null;
+        if (!empty($_FILES['update_item_file']['name'])) {
+            $path = $uploader->upload($_FILES['update_item_file'], "item");
+        }
+        $itemModel->update(
+            (int)$_POST['item_id'],
+            $_POST['item_title'],
+            $_POST['item_author'],
+            $_POST['item_genre'],
+            $_POST['item_pages'],
+            $_POST['item_rating'],
+            $_POST['item_description'],
+            $path
+        );
+        $successMsg = "Item updated successfully!";
+    } catch (Exception $e) {
+        $errorMsg = $e->getMessage();
+    }
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_item'])) {
+    try {
+        $itemModel->delete((int)$_POST['item_id']);
+        $successMsg = "Item deleted successfully!";
     } catch (Exception $e) {
         $errorMsg = $e->getMessage();
     }
@@ -148,6 +185,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_news'])) {
     </tr>
     <?php endwhile; ?>
 </table>
+
+<h2>Items (Comics/Authors)</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Genre</th>
+        <th>Pages</th>
+        <th>Rating</th>
+        <th>Page</th>
+        <th>Actions</th>
+    </tr>
+    <?php while($row = $items->fetch_assoc()): ?>
+    <tr>
+        <td><?= $row['id'] ?></td>
+        <td><?= htmlspecialchars($row['title']) ?></td>
+        <td><?= htmlspecialchars($row['author']) ?></td>
+        <td><?= htmlspecialchars($row['genre']) ?></td>
+        <td><?= htmlspecialchars($row['pages']) ?></td>
+        <td><?= htmlspecialchars($row['rating']) ?></td>
+        <td><?= $row['page'] ?></td>
+        <td>
+            <a href="?edit=<?= $row['id'] ?>"><button>Edit</button></a>
+            <button onclick="confirmDelete(<?= $row['id'] ?>)">Delete</button>
+        </td>
+    </tr>
+    <?php endwhile; ?>
+</table>
 <h2>Add Comic/Author Item</h2>
 <form method="POST" enctype="multipart/form-data">
   <input name="item_title" placeholder="Title" required><br>
@@ -174,5 +240,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_news'])) {
   <button type="submit" name="add_news">Add News</button>
 </form>
 
-</body>
-</html>
+<h2>Edit Item</h2>
+<form method="POST" enctype="multipart/form-data" id="editForm" style="display:<?= $editItem ? 'block' : 'none' ?>;">
+  <input type="hidden" name="item_id" value="<?= $editItem ? $editItem['id'] : '' ?>">
+  <input name="item_title" value="<?= $editItem ? htmlspecialchars($editItem['title']) : '' ?>" placeholder="Title" required><br>
+  <input name="item_author" value="<?= $editItem ? htmlspecialchars($editItem['author']) : '' ?>" placeholder="Author" required><br>
+  <input name="item_genre" value="<?= $editItem ? htmlspecialchars($editItem['genre']) : '' ?>" placeholder="Genre" required><br>
+  <input name="item_pages" value="<?= $editItem ? htmlspecialchars($editItem['pages']) : '' ?>" placeholder="Pages" required><br>
+  <input name="item_rating" value="<?= $editItem ? htmlspecialchars($editItem['rating']) : '' ?>" placeholder="Rating" required><br>
+  <textarea name="item_description" placeholder="Description" required><?= $editItem ? htmlspecialchars($editItem['description']) : '' ?></textarea><br>
+  <select name="item_page" required>
+    <option value="comics" <?= $editItem && $editItem['page'] == 'comics' ? 'selected' : '' ?>>Comics</option>
+    <option value="authors" <?= $editItem && $editItem['page'] == 'authors' ? 'selected' : '' ?>>Authors</option>
+  </select><br>
+  <input type="file" name="update_item_file" accept="image/*,.pdf"><br>
+  <button type="submit" name="update_item">Update Item</button>
+  <a href="dashboard.php"><button type="button">Cancel</button></a>
+</form>
+
+
