@@ -33,7 +33,6 @@ background: #ffffff;
     margin-top: -2px;
 }
 
-
 .logo-text .pink{
     color: #d87093;
     font-weight: bold;
@@ -55,7 +54,6 @@ background: #ffffff;
     left: 50%;
     transform: translateX(-50%);
 }
-
 
 .nav-categories li a{
     text-decoration: none;
@@ -322,9 +320,7 @@ background: #ffffff;
   height: calc(100% - 70px);
   background: #afffc3;
   padding: 25px;
-
   border-left: 4px solid #4bd371;
-
   box-shadow: -4px 0 20px rgba(0,0,0,0.15);
   transform: translateX(100%);
   transition: transform 0.3s ease;
@@ -332,11 +328,9 @@ background: #ffffff;
   overflow-y: auto;
 }
 
-
 .book-sidebar.open {
   transform: translateX(0);
 }
-
 
 .book-sidebar img {
   width: 80%;
@@ -345,7 +339,6 @@ background: #ffffff;
   margin: 10px auto 20px;
   border-radius: 12px;
 }
-
 
 .close-btn {
   font-size: 28px;
@@ -366,4 +359,205 @@ background: #ffffff;
 
 .overlay.show {
   display: block;
+}
+
+/* =============================================
+   RESPONSIVE — vetëm layout, asnjë ndryshim dizajni
+   ============================================= */
+
+/* Tablet: deri 1024px */
+@media (max-width: 1024px) {
+  .nav-categories {
+    gap: 18px;
+  }
+
+  .nav-categories li a {
+    font-size: 15px;
+  }
+
+  .author-hero {
+    margin: 0 30px 60px;
+    padding: 50px 40px;
+  }
+
+  .author-book img {
+    width: 200px;
+    height: 290px;
+  }
+
+  .books-section {
+    margin: 0 30px 80px;
+    padding: 40px 30px;
+  }
+
+  .books-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .authors-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .other-authors {
+    padding: 0 30px 80px;
+  }
+
+  .other-authors h2 {
+    padding-left: 0;
+  }
+}
+
+/* Mobile: deri 768px */
+@media (max-width: 768px) {
+  .topnav {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 16px 8px;
+    gap: 8px;
+  }
+
+  .nav-categories {
+    position: static;
+    transform: none;
+    left: auto;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-categories li a {
+    font-size: 14px;
+  }
+
+  .top-buttons {
+    position: absolute;
+    top: 18px;
+    right: 16px;
+    transform: none;
+    gap: 14px;
+  }
+
+  .top-buttons ion-icon {
+    font-size: 24px;
+  }
+
+  .author-page {
+    margin-top: 150px;
+  }
+
+  .author-hero {
+    flex-direction: column;
+    margin: 0 16px 40px;
+    padding: 30px 20px;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .author-info {
+    max-width: 100%;
+  }
+
+  .author-info h1 {
+    font-size: 24px;
+  }
+
+  .author-book img {
+    width: 160px;
+    height: 230px;
+  }
+
+  .books-section {
+    margin: 0 16px 50px;
+    padding: 24px 16px;
+    border-radius: 12px;
+  }
+
+  .books-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .book-card img {
+    width: 130px;
+    height: 190px;
+  }
+
+  .authors-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .author-card img {
+    width: 130px;
+    height: 180px;
+  }
+
+  .other-authors {
+    padding: 0 16px 60px;
+  }
+
+  .other-authors h2 {
+    padding-left: 0;
+  }
+
+  /* Sidebar kalon në drawer nga poshtë */
+  .book-sidebar {
+    width: 100%;
+    height: 55vh;
+    top: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border-left: none;
+    border-top: 4px solid #4bd371;
+    transform: translateY(100%);
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+  }
+
+  .book-sidebar.open {
+    transform: translateY(0);
+  }
+
+  .overlay {
+    top: 0;
+    height: 100%;
+  }
+}
+
+/* Mobile i vogël: deri 480px */
+@media (max-width: 480px) {
+  .logo-text .pink,
+  .logo-text .black {
+    font-size: 18px;
+  }
+
+  .author-info h1 {
+    font-size: 20px;
+  }
+
+  .books-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  .book-card img {
+    width: 110px;
+    height: 160px;
+  }
+
+  .authors-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .author-card img {
+    width: 110px;
+    height: 150px;
+  }
 }

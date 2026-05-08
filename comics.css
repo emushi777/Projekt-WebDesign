@@ -1,9 +1,9 @@
-
 body {
   margin: 0;
   font-family: 'Georgia', serif;
   background: #ffffff;
   padding-top: 70px;
+  overflow-x: hidden;
 }
 
 .topnav {
@@ -101,70 +101,67 @@ body {
   display: block;
 }
 
-.notif-list ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 10px 0;
+.notif-list ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 10px 0;
 }
 
-.notif-list ul li{
-    padding: 10px 15px;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background 0.2s;
+.notif-list ul li {
+  padding: 10px 15px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.2s;
 }
 
-.notif-list ul li:hover{
-    background: #f2f2f2;
+.notif-list ul li:hover {
+  background: #f2f2f2;
 }
 
-.profile-dropdown{
-    display: none;
-    position: absolute;
-    top: 45px;
-    right: 0;
-    background: #d87093;
-    border-radius: 8px;
-    overflow: hidden;
-    min-width: 120px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    z-index: 1000;
+.profile-dropdown {
+  display: none;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background: #d87093;
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 120px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  z-index: 1000;
 }
 
-.profile-dropdown.active{
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
+.profile-dropdown.active {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
-.profile-dropdown a{
-    color: white;
-    text-decoration: none;
-    padding: 10px 15px;
-    display: block;
-    text-align: center;
-    border-radius: 8px; 
-    transition: background 0.3s ease;
+.profile-dropdown a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  display: block;
+  text-align: center;
+  border-radius: 8px;
+  transition: background 0.3s ease;
 }
 
-.profile-dropdown a:hover{
-    background: #c45c7e;
-    border-radius: 8px;
+.profile-dropdown a:hover {
+  background: #c45c7e;
+  border-radius: 8px;
 }
 
 .hero {
   margin: 30px 40px 0;
   height: 380px;
   padding: 40px;
-
   background-image: url("https://images7.alphacoders.com/114/thumb-1920-1144579.jpg");
   background-size: cover;
   background-position: center;
-
   border-radius: 20px;
   display: flex;
   align-items: center;
-
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
@@ -175,7 +172,6 @@ body {
   max-width: 420px;
   position: relative;
   z-index: 2;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -236,8 +232,6 @@ body {
   justify-items: center;
 }
 
-
-
 .book-card {
   background: #f8f8f4;
   border-radius: 14px;
@@ -258,19 +252,12 @@ body {
   border-radius: 12px;
 }
 
-
 .book-card p {
   margin-top: 10px;
   font-size: 14px;
   font-weight: bold;
   text-align: center;
 }
-
-
-body {
-  overflow-x: hidden;
-}
-
 
 .close-btn {
   font-size: 28px;
@@ -293,7 +280,6 @@ body {
   display: block;
 }
 
-
 .book-sidebar {
   position: fixed;
   top: 70px;
@@ -302,9 +288,7 @@ body {
   height: calc(100% - 70px);
   background: #8fdcff;
   padding: 20px;
-
   border-left: 4px solid #43a9e4;
-
   box-shadow: -4px 0 20px rgba(0,0,0,0.15);
   transform: translateX(100%);
   transition: transform 0.3s ease;
@@ -317,41 +301,207 @@ body {
 }
 
 .book-sidebar img {
-  width: 205px; 
+  width: 205px;
   max-width: 100%;
-  height: auto; 
+  height: auto;
   display: block;
   margin: 10px auto 20px;
   border-radius: 12px;
 }
 
-
-
 .book-sidebar h2 {
   font-size: 20px;
   margin: 10px 0 14px;
   text-align: center;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .book-sidebar p {
   font-size: 15.5px;
   line-height: 1.4;
   margin-bottom: 6px;
-}
-
-
-body {
-  overflow-x: hidden;
-}
-
-.book-sidebar h2 {
   max-width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
 
-.book-sidebar p {
-  max-width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+/* =============================================
+   RESPONSIVE — vetëm layout, asnjë ndryshim dizajni
+   ============================================= */
+
+/* Tablet: deri 1024px */
+@media (max-width: 1024px) {
+  .nav-categories {
+    gap: 18px;
+  }
+
+  .nav-categories a {
+    font-size: 15px;
+  }
+
+  .hero {
+    margin: 20px 20px 0;
+    height: 300px;
+    padding: 30px;
+  }
+
+  .hero-content h1 {
+    font-size: 28px;
+  }
+
+  .books-section {
+    margin: 40px 20px;
+  }
+
+  .books-container {
+    padding: 30px;
+  }
+
+  .books-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 24px;
+  }
+
+  .book-card img {
+    width: 150px;
+  }
+}
+
+/* Mobile: deri 768px */
+@media (max-width: 768px) {
+  .topnav {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px 16px 8px;
+    gap: 8px;
+  }
+
+  .nav-categories {
+    position: static;
+    transform: none;
+    left: auto;
+    flex-wrap: wrap;
+    gap: 12px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-categories a {
+    font-size: 14px;
+  }
+
+  .top-buttons {
+    position: absolute;
+    top: 18px;
+    right: 16px;
+    transform: none;
+    gap: 14px;
+  }
+
+  .top-buttons ion-icon {
+    font-size: 24px;
+  }
+
+  body {
+    padding-top: 140px;
+  }
+
+  .hero {
+    margin: 0 12px;
+    height: 240px;
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  .hero-content {
+    padding: 18px 20px;
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+  .hero-content h1 {
+    font-size: 22px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+
+  .books-section {
+    margin: 24px 12px 40px;
+  }
+
+  .books-container {
+    padding: 20px 16px;
+    border-radius: 14px;
+  }
+
+  .books-container h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .books-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .book-card img {
+    width: 100%;
+  }
+
+  /* Sidebar drawer nga poshtë */
+  .book-sidebar {
+    width: 100%;
+    height: 55vh;
+    top: auto;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    border-left: none;
+    border-top: 4px solid #43a9e4;
+    transform: translateY(100%);
+    border-radius: 16px 16px 0 0;
+    box-shadow: 0 -4px 20px rgba(0,0,0,0.15);
+  }
+
+  .book-sidebar.open {
+    transform: translateY(0);
+  }
+
+  .overlay {
+    top: 0;
+    height: 100%;
+  }
+}
+
+/* Mobile i vogël: deri 480px */
+@media (max-width: 480px) {
+  .logo-text .pink,
+  .logo-text .black {
+    font-size: 18px;
+  }
+
+  .hero {
+    height: 200px;
+  }
+
+  .hero-content h1 {
+    font-size: 18px;
+  }
+
+  .hero-btn {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  .books-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
 }
